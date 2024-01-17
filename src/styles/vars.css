@@ -1,0 +1,23 @@
+:root,
+*::backdrop {
+  --c-dark: #242424;
+  --c-bg: var(--c-dark);
+  --c-bg-f: #2e2e2e;
+  --c-txt: #ffffffde;
+  --c-accent: #ebf2fa;
+  --c-accent-h: hsl(210, 58%, 90%);
+
+  --b-rs: 0.5rem;
+
+  --sb-c-bg: var(--c-bg);
+  --sb-c-tb: var(--c-bg-f);
+  --sb-size: 0.5rem;
+}
+@media (prefers-color-scheme: light) {
+  :root,
+  *::backdrop {
+    --c-bg: #edeef0;
+    --c-bg-f: #ffffff;
+    --c-txt: #242424;
+  }
+}

@@ -1,0 +1,89 @@
+.root {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-area: header;
+  background-color: var(--c-bg-f);
+}
+
+.index-link {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.panel {
+  grid-column: 3 / -2;
+  height: 100%;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.panel-right {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: end;
+}
+
+.authBtn {
+  line-height: 1;
+  transition: 0.3s ease-in-out;
+  transition-property: filter;
+}
+.authBtn button {
+  display: contents;
+}
+
+.authBtn:hover {
+  filter: drop-shadow(0 0 0.5rem var(--c-bg));
+}
+.authBtn svg {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.userAvatar {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+}
+
+.username {
+  font-weight: 500;
+}
+.modalLogout[open] {
+  display: grid;
+}
+.modalLogout {
+  border: none;
+  margin-inline: auto;
+  margin-top: 4rem;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  background-color: var(--c-bg-f);
+  box-shadow: 0 0 2rem var(--c-bg);
+  gap: 1rem;
+}
+.modalLogout::backdrop {
+  background-color: var(--c-bg);
+  opacity: 0.5;
+}
+.modalLogout-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalLogout-buttons button {
+  border-radius: var(--b-rs);
+  line-height: 2em;
+  padding-inline: 2ch;
+  background-color: var(--c-bg);
+  color: currentColor;
+  /* color: var(--c-dark); */
+}
+
+.modalLogout-buttons button.accent {
+  background-color: rgba(255, 0, 0, 0.404);
+}

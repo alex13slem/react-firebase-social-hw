@@ -1,0 +1,13 @@
+.root {
+  --aside-width: 10rem;
+  --main-width: 57rem;
+
+  height: 100svh;
+  display: grid;
+  gap: 1rem 0.5rem;
+  grid-template-areas:
+    'header header header header'
+    '. aside main .';
+  grid-template-columns: auto var(--aside-width) minmax(auto, var(--main-width)) auto;
+  grid-template-rows: 3rem 1fr;
+}

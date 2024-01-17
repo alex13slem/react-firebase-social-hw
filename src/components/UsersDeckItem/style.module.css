@@ -1,0 +1,33 @@
+.root {
+  background-color: var(--c-bg-f);
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  border-radius: var(--b-rs);
+}
+
+.avatar {
+  flex: 0 0 auto;
+}
+.avatar img {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background-color: var(--c-bg);
+}
+
+.info {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  gap: 2ch;
+}
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75ch;
+}
+.info h2 {
+  flex: 1 1 auto;
+  font-weight: 500;
+}

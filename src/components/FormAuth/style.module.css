@@ -1,0 +1,33 @@
+.form {
+  max-width: 30rem;
+  width: 100%;
+  background-color: var(--c-bg-f);
+  border-radius: var(--b-rs);
+  padding: 2rem;
+  display: grid;
+}
+
+.form h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1em;
+}
+
+.submitBtn {
+  justify-self: center;
+
+  padding: 1rem;
+  color: var(--c-dark);
+
+  line-height: 2;
+
+  background-color: var(--c-accent);
+  border-radius: var(--b-rs);
+  transition: 0.3s ease-in-out;
+  transition-property: background-color;
+}
+
+.submitBtn:hover {
+  background-color: var(--c-accent-h);
+}
