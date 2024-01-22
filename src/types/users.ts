@@ -1,8 +1,8 @@
-export type User = {
+export type UserProfile = {
   uid: string;
   name: string;
-  email: string;
-  age: number;
-  avatarUrl: string;
+  email: string | null;
+  age: number | null;
+  avatarUrl: string | null;
   friendsList: string[];
 };

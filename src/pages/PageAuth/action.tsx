@@ -1,7 +1,8 @@
-import { auth, db, googleProvider } from '../../fb-config';
+import { auth, db, googleProvider } from '../../lib/firebaseClient';
 import { signInWithPopup, signOut } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { ActionFunction, redirect } from 'react-router-dom';
+import { UserProfile } from '../../types/users';
 
 export const actionLogout: ActionFunction = async () => {
   try {
@@ -20,12 +21,13 @@ const action: ActionFunction = async () => {
 
     if (!docSnap.exists()) {
       console.log('добавление пользователя');
-      const newUser = {
+      const newUser: UserProfile = {
         name: user.displayName || 'Новый пользователь',
-        age: 0,
-        avatarUrl: user.photoURL || '',
+        age: null,
+        avatarUrl: user.photoURL,
         email: user.email,
         friendsList: [],
+        uid: user.uid,
       };
 
       await setDoc(docRef, newUser);

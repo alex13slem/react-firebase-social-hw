@@ -1,9 +1,9 @@
 import { ComponentProps, FC, HTMLAttributes } from 'react';
 import css from './style.module.css';
-import { User } from '../../types/users';
+import { UserProfile } from '../../types/users';
 
 interface Props extends ComponentProps<FC>, HTMLAttributes<HTMLDivElement> {
-  user: User;
+  user: UserProfile;
 }
 
 const ProfileCard: FC<Props> = ({ user }) => {

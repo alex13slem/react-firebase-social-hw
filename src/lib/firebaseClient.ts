@@ -1,7 +1,8 @@
 // import { getAnalytics } from 'firebase/analytics';
 import { initializeApp } from 'firebase/app';
-import { GoogleAuthProvider, getAuth } from 'firebase/auth';
+import { GoogleAuthProvider, getAuth, onAuthStateChanged } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
+import { useUserAuth } from '../store/userAuth';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FB_API_KEY,
@@ -13,8 +14,20 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FB_MEASUREMENT_ID,
 };
 
-const app = initializeApp(firebaseConfig);
+const firebaseClient = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
-export const auth = getAuth(app);
+
+// Auth settings
+export const auth = getAuth(firebaseClient);
 export const googleProvider = new GoogleAuthProvider();
-export const db = getFirestore(app);
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    useUserAuth.setState({ currentUser: user });
+  } else {
+    useUserAuth.setState({ currentUser: null });
+  }
+});
+
+// DB settings
+export const db = getFirestore(firebaseClient);

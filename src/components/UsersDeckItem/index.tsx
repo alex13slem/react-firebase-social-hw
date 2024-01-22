@@ -28,7 +28,7 @@ const UsersDeckItem: FC<Props> = ({ user }) => {
         ) : null}
         <div className={css['info-item']}>
           <strong>Email: </strong>
-          <span>{email}</span>
+          <a href={'mailto:' + email}>{email}</a>
         </div>
       </div>
     </article>

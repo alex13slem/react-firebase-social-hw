@@ -1,10 +1,11 @@
-import { User, onAuthStateChanged } from 'firebase/auth';
+import type { User } from 'firebase/auth';
 import { create } from 'zustand';
-import { auth } from '../fb-config';
+
+type CurrentUser = User | null;
 
 interface UserAuthState {
-  currentUser: null | User;
-  setCurrentUser: (currentUser: null | User) => void;
+  currentUser: CurrentUser;
+  setCurrentUser: (currentUser: CurrentUser) => void;
 }
 
 export const useUserAuth = create<UserAuthState>()((set) => ({
@@ -13,11 +14,3 @@ export const useUserAuth = create<UserAuthState>()((set) => ({
     set(() => ({ currentUser }));
   },
 }));
-
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    useUserAuth.setState({ currentUser: user });
-  } else {
-    useUserAuth.setState({ currentUser: null });
-  }
-});
