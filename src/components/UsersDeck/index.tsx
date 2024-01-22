@@ -1,10 +1,10 @@
 import { ComponentProps, FC, HTMLAttributes } from 'react';
 import css from './style.module.css';
-import { User } from '../../types/users';
+import type { UserProfile } from '../../types/users';
 import UsersDeckItem from '../UsersDeckItem';
 
 interface Props extends ComponentProps<FC>, HTMLAttributes<HTMLDivElement> {
-  users: User[];
+  users: UserProfile[];
 }
 
 const UsersDeck: FC<Props> = ({ users }) => {

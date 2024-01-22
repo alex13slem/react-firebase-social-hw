@@ -11,7 +11,7 @@ const ProfileCard: FC<Props> = ({ user }) => {
   return (
     <article className={css['profile-card']}>
       <div className={css['avatar']}>
-        <img src={avatarUrl} alt={name || 'Avatar'} />
+        <img src={avatarUrl || ''} alt={name || 'Avatar'} />
       </div>
       <div className={css['info']}>
         <h1>{name || 'Новый пользователь'}</h1>
