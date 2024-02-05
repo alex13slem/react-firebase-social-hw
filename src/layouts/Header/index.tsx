@@ -1,13 +1,14 @@
 import css from './style.module.css';
 import { Icon } from '@iconify/react/dist/iconify.js';
-import { Form, Link } from 'react-router-dom';
-import { useUserAuth } from '../../store/userAuth';
+import { Form, Link, useLocation } from 'react-router-dom';
 import SiteLogo from '../../assets/svg/siteLogo.svg?react';
 import { useRef } from 'react';
+import { auth } from '../../lib/firebaseClient';
 
 function Header() {
-  const { currentUser } = useUserAuth();
+  const { currentUser } = auth;
   const modalLogout = useRef<HTMLDialogElement>(null);
+  const { pathname } = useLocation();
 
   return (
     <header className={css.root}>
@@ -36,13 +37,13 @@ function Header() {
             >
               <Icon icon="material-symbols:logout" />
             </button>
-          ) : (
+          ) : pathname !== '/auth' ? (
             <Link className={css.authBtn} to={'/auth'}>
               <button>
                 <Icon icon="material-symbols:login" />
               </button>
             </Link>
-          )}
+          ) : null}
         </div>
       </div>
       <dialog className={css['modalLogout']} ref={modalLogout}>
